@@ -1,12 +1,20 @@
 import { modal, modalOpenBtn } from "./elems.js";
+import { formController } from "./formController.js";
 import { modalController } from "./modalController.js";
 import { previewController } from "./previewController.js";
+import { tableController } from "./tableController.js";
 
-modalController({
-  modal: modal,
-  btn: modalOpenBtn,
-  classOpen: 'd-block',
-  classClose: 'btn-close',
-});
+const init = () => {
+  modalController({
+    modal: modal,
+    btn: modalOpenBtn,
+    classOpen: 'd-block',
+    classClose: 'btn-close',
+  });
 
-previewController();
+  previewController();
+  tableController();
+  formController();
+};
+
+init();
