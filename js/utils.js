@@ -6,7 +6,7 @@ export const toBase64 = (file) => {
       resolve(reader.result);
     });
 
-    reader.addEventListener('error', (err)=> {
+    reader.addEventListener('error', (err) => {
       reject(err);
     });
 
@@ -20,4 +20,19 @@ export const currencyFormatRUB = (num) => {
     currency: 'RUB',
     maximumFractionDigits: 0,
   }).format(num);
+};
+
+export const createElem = (tag, attr, children) => {
+  const elem = document.createElement(tag);
+  Object.assign(elem, { ...attr });
+
+  if (children) {
+    if (Array.isArray(children)) {
+      elem.append(...children);
+    } else {
+      elem.append(children);
+    }
+  }
+
+  return elem;
 };
